@@ -4,8 +4,8 @@
 Game gGame;
 
 Game::Game()
-  : numOutbreaks(0),
-    world(new World),
+  : world(new World),
+    numOutbreaks(0),
     playerDeck(new PlayerDeck(world->getCities())) {
 
 }

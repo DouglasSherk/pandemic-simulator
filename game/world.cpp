@@ -10,12 +10,20 @@ World::World() {
 void
 World::loadCities() {
   ifstream infile("cities.txt");
-  int disease;
+  string diseaseName;
   string name;
-  while (infile >> disease >> name) {
-    if (disease >= Disease_Max) {
+  while (infile >> diseaseName >> name) {
+    int disease = -1;
+    for (int i = 0; i < Disease_Max; i++) {
+      if (diseaseName == DiseaseNames[i]) {
+        disease = i;
+      }
+    }
+
+    if (disease < 0 || disease >= Disease_Max) {
       throw invalid_argument("Disease is out of range");
     }
+
     cities.insert(make_pair(name, new City((Disease)disease, name)));
   }
 }
@@ -43,6 +51,8 @@ World::loadCitiesGraph() {
 vector<City*>
 World::getCities() {
   vector<City*> vCities;
-  copy(cities.begin(), cities.end(), vCities.begin());
+  for (auto it : cities) {
+    vCities.push_back(it.second);
+  }
   return vCities;
 }

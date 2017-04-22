@@ -1,2 +1,48 @@
-1 Berlin
-0 Tokyo
+Red Hong Kong
+Red Bangkok
+Black Chennai
+Black Kolkata
+Black Delhi
+Red Ho Chi Minh City
+Red Manila
+Black Jakarta
+Black Karachi
+Black Baghdad
+Red Taipei
+Black Mumbai
+Black Tehran
+Red Shanghai
+Black Istanbul
+Black Cairo
+Red Sydney
+Black Riyadh
+Blue San Francisco
+Black Algiers
+Red Tokyo
+Blue Paris
+Black Moscow
+Yellow Los Angeles
+Blue Madrid
+Blue Chicago
+Blue Milan
+Red Seoul
+Black St. Petersberg
+Blue Essen
+Blue London
+Yellow Mexico City
+Red Osaka
+Red Beijing
+Blue New York
+Black Khartoum
+Yellow Bogota
+Yellow Miami
+Blue Washington
+Yellow Sao Paolo
+Blue Montreal
+Blue Atlanta
+Yellow Lima
+Yellow Lagos
+Yellow Kinshasa
+Yellow Buenos Aires
+Yellow Johannesburg
+Yellow Santiago
