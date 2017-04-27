@@ -3,6 +3,6 @@
 REGISTER_EVENT_CARD(GovernmentGrantCard);
 
 void
-GovernmentGrantCard::play() {
+GovernmentGrantCard::play() const {
   cout << "govt grant" << endl;
 }

@@ -14,6 +14,8 @@ public:
   void play();
   void outbreak();
   World* getWorld();
+  InfectionDeck* getInfectionDeck() const;
+  PlayerDeck* getPlayerDeck() const;
 
 protected:
   void checkGameEnded();

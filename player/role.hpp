@@ -2,10 +2,13 @@
 #define __ROLE_INCLUDED__
 
 #include "../common/pandemic.hpp"
+#include "../interfaces/turn_based.hpp"
 
-class Role {
+class Role : public TurnBased {
 public:
   virtual void act() = 0;
+  virtual void onTurn();
+  virtual void onNewTurn();
 };
 
 struct Roles {

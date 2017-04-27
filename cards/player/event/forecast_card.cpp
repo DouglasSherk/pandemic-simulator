@@ -3,6 +3,6 @@
 REGISTER_EVENT_CARD(ForecastCard);
 
 void
-ForecastCard::play() {
+ForecastCard::play() const {
   cout << "forecast" << endl;
 }

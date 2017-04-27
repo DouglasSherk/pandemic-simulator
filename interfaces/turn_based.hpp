@@ -4,6 +4,7 @@
 class TurnBased {
 protected:
   virtual void onNewTurn() = 0;
+  virtual void onTurn() = 0;
 };
 
 #endif

@@ -10,6 +10,10 @@ class PlayerDeck : public Deck {
 public:
   PlayerDeck();
   PlayerDeck(const vector<City*>&);
+
+  virtual const PlayerCard* drawCard();
+
+  typedef Deck super;
 };
 
 #endif

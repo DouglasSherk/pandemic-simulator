@@ -17,10 +17,6 @@ Game::Game(int playersNum)
   for (int i = 0; i < playersNum && i < possibleRoles.size(); i++) {
     players.push_back(possibleRoles[i]);
   }
-
-  for (auto it : players) {
-    it->act();
-  }
 }
 
 Game::~Game() {
@@ -46,4 +42,14 @@ Game::outbreak() {
 void
 Game::checkGameEnded() {
 
+}
+
+PlayerDeck*
+Game::getPlayerDeck() const {
+  return playerDeck;
+}
+
+InfectionDeck*
+Game::getInfectionDeck() const {
+  return infectionDeck;
 }

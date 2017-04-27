@@ -18,6 +18,11 @@ City::onNewTurn() {
 }
 
 void
+City::onTurn() {
+
+}
+
+void
 City::addCityConnection(City& city) {
   connectedCities.push_back(&city);
   city.connectedCities.push_back(this);

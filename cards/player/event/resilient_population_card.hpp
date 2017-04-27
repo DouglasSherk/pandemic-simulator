@@ -5,7 +5,7 @@
 
 class ResilientPopulationCard : public EventCard {
 public:
-  virtual void play();
+  virtual void play() const;
 };
 
 #endif

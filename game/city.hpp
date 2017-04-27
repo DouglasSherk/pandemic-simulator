@@ -22,6 +22,7 @@ protected:
 
   void outbreak(Disease);
   virtual void onNewTurn();
+  virtual void onTurn();
 
   Disease disease;
   string name;

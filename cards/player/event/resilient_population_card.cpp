@@ -3,6 +3,6 @@
 REGISTER_EVENT_CARD(ResilientPopulationCard);
 
 void
-ResilientPopulationCard::play() {
+ResilientPopulationCard::play() const {
   cout << "res pop" << endl;
 }

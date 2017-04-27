@@ -3,6 +3,6 @@
 REGISTER_EVENT_CARD(OneQuietNightCard);
 
 void
-OneQuietNightCard::play() {
+OneQuietNightCard::play() const {
   cout << "oqn" << endl;
 }

@@ -3,6 +3,6 @@
 REGISTER_EVENT_CARD(AirliftCard);
 
 void
-AirliftCard::play() {
+AirliftCard::play() const {
   cout << "airlift" << endl;
 }

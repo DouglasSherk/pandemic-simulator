@@ -6,7 +6,8 @@
 
 class EventCard : public PlayerCard {
 public:
-  virtual void play() = 0;
+  virtual void play() const = 0;
+  virtual CardType cardType() const { return Hand; }
 };
 
 struct EventCards {

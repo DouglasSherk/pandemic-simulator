@@ -4,3 +4,8 @@ CityCard::CityCard(City* city)
   : city(city) {
 
 }
+
+void
+CityCard::play() const {
+
+}
