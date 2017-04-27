@@ -52,7 +52,7 @@ City::outbreak(Disease disease) {
     cout << "Outbreaking in " << it->name << endl;
   }
 
-  gGame.outbreak();
+  gGame->outbreak();
 }
 
 disease_cubes

@@ -1,5 +1,14 @@
 #include "deck.hpp"
 
+Deck::~Deck() {
+  for (auto it : cards) {
+    delete it;
+  }
+  for (auto it : discards) {
+    delete it;
+  }
+}
+
 const Card*
 Deck::drawCard() {
   Card* card = cards.front();
@@ -23,7 +32,8 @@ Deck::shuffle() {
   for (auto it : cards) {
     vCards.push_back(it);
   }
-  random_shuffle(vCards.begin(), vCards.end());
+  unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+  ::shuffle(vCards.begin(), vCards.end(), default_random_engine(seed));
 
   cards.clear();
   for (auto it : vCards) {

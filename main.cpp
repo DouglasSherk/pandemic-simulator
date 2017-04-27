@@ -4,7 +4,8 @@
 #include "game/game.hpp"
 
 int main(int argc, char** argv) {
-  srand(unsigned(time(0)));
-  gGame.play();
+  srand(time(0));
+  gGame = new Game(6);
+  gGame->play();
   return 0;
 }

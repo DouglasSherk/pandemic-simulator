@@ -6,11 +6,13 @@
 
 class Deck {
 public:
+  ~Deck();
+
   const Card* drawCard();
   void shuffle();
   Deck& operator +=(const Deck&);
 
-protected:
+//protected:
   list<Card *> cards;
   list<Card *> discards;
 };

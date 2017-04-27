@@ -9,10 +9,12 @@ World::World() {
 
 void
 World::loadCities() {
-  ifstream infile("cities.txt");
-  string diseaseName;
-  string name;
-  while (infile >> diseaseName >> name) {
+  ifstream infile("config/cities.txt");
+  string line;
+  while (getline(infile, line)) {
+    int pos = line.find_first_of(' ');
+    string diseaseName = line.substr(0, pos);
+    string cityName = line.substr(pos + 1);
     int disease = -1;
     for (int i = 0; i < Disease_Max; i++) {
       if (diseaseName == DiseaseNames[i]) {
@@ -24,26 +26,29 @@ World::loadCities() {
       throw invalid_argument("Disease is out of range");
     }
 
-    cities.insert(make_pair(name, new City((Disease)disease, name)));
+    cities.insert(make_pair(cityName, new City((Disease)disease, cityName)));
   }
 }
 
 void
 World::loadCitiesGraph() {
-  ifstream infile("cities_graph.txt");
+  ifstream infile("config/cities_graph.txt");
 
-  string root;
-  const size_t connectedNum = 7;
-  string connected[connectedNum];
+  string line;
+  while (getline(infile, line)) {
+    stringstream connections;
+    connections << line;
 
-  while (infile >> root >> connected[0] >> connected[1] >> connected[2] >> connected[3] >> connected[4] >> connected[5]) {
+    string root;
+    connections >> root;
     if (cities.find(root) == cities.end()) { continue; }
 
-    for (int i = 0; i < connectedNum; i++) {
-      if (connected[i].length() <= 1) { continue; }
-      if (cities.find(connected[i]) == cities.end()) { continue; }
+    while (!connections.eof()) {
+      string connection;
+      connections >> connection;
 
-      cities[root]->addCityConnection(*cities[connected[i]]);
+      if (cities.find(connection) == cities.end()) { continue; }
+      cities[root]->addCityConnection(*cities[connection]);
     }
   }
 }
