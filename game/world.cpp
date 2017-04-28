@@ -31,6 +31,13 @@ World::loadCities() {
 }
 
 void
+World::formatCityName(string& cityName) {
+  while (cityName.find('_') != string::npos) {
+    replace(cityName.begin(), cityName.end(), '_', ' ');
+  }
+}
+
+void
 World::loadCitiesGraph() {
   ifstream infile("config/cities_graph.txt");
 
@@ -41,11 +48,13 @@ World::loadCitiesGraph() {
 
     string root;
     connections >> root;
+    formatCityName(root);
     if (cities.find(root) == cities.end()) { continue; }
 
     while (!connections.eof()) {
       string connection;
       connections >> connection;
+      formatCityName(connection);
 
       if (cities.find(connection) == cities.end()) { continue; }
       cities[root]->addCityConnection(*cities[connection]);

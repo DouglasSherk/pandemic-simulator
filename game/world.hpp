@@ -16,6 +16,7 @@ protected:
   unordered_map<string, City*> cities;
 
 private:
+  static void formatCityName(string&);
   void loadCities();
   void loadCitiesGraph();
 };

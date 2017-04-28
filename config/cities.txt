@@ -5,7 +5,7 @@ Black Kolkata
 Black Delhi
 Red Ho Chi Minh City
 Red Manila
-Black Jakarta
+Red Jakarta
 Black Karachi
 Black Baghdad
 Red Taipei
@@ -26,7 +26,7 @@ Blue Madrid
 Blue Chicago
 Blue Milan
 Red Seoul
-Black St. Petersberg
+Black St. Petersburg
 Blue Essen
 Blue London
 Yellow Mexico City

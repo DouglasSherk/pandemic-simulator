@@ -1,1 +1,48 @@
-Bangkok Manila
+San_Francisco Chicago Los_Angeles Tokyo Manila
+Chicago San_Francisco Los_Angeles Atlanta Montreal
+Montreal Chicago Washington New_York
+New_York Montreal Washington London Madrid
+Atlanta Chicago Washington Miami
+Washington Atlanta Montreal New_York Miami
+Madrid New_York Sao_Paolo London Paris Algiers
+London New_York Madrid Paris Essen
+Paris London Madrid Algiers Milan Essen
+Essen London Paris Milan St._Petersburg
+St._Petersburg Essen Istanbul Moscow
+Milan Istanbul Essen Paris
+Algiers Madrid Paris Istanbul Cairo
+Cairo Algiers Istanbul Baghdad Riyadh
+Istanbul Milan Algiers Cairo St._Petersburg Moscow Baghdad
+Moscow St._Petersburg Istanbul Tehran
+Baghdad Istanbul Cairo Riyadh Karachi Tehran
+Riyadh Cairo Baghdad Karachi
+Tehran Moscow Baghdad Karachi Delhi
+Karachi Riyadh Baghdad Tehran Delhi Mumbai
+Mumbai Karachi Delhi Chennai
+Delhi Karachi Mumbai Tehran Chennai Kolkata
+Chennai Mumbai Delhi Kolkata Bangkok Jakarta
+Kolkata Delhi Chennai Bangkok Hong_Kong
+Los_Angeles San_Francisco Sydney Mexico_City Chicago
+Mexico_City Los_Angeles Miami Bogota Lima
+Miami Atlanta Washington Mexico_City Bogota
+Bogota Mexico_City Miami Lima Sao_Paolo Buenos_Aires
+Lima Mexico_City Bogota Santiago
+Santiago Lima
+Buenos_Aires Bogota Sao_Paolo
+Sao_Paolo Bogota Buenos_Aires Madrid Lagos
+Lagos Sao_Paolo Kinshasa Khartoum
+Kinshasa Lagos Khartoum Johannesburg
+Khartoum Cairo Lagos Kinshasa Johannesburg
+Johannesburg Kinshasa Khartoum Buenos_Aires
+Bangkok Ho_Chi_Minh_City Jakarta Hong_Kong Kolkata
+Jakarta Chennai Bangkok Ho_Chi_Minh_City Sydney
+Beijing Seoul Shanghai
+Shanghai Beijing Hong_Kong Seoul Tokyo Taipei
+Hong_Kong Kolkata Bangkok Ho_Chi_Minh_City Shanghai Taipei Manila
+Ho_Chi_Minh_City Jakarta Bangkok Hong_Kong Manila
+Seoul Beijing Shanghai Tokyo
+Taipei Shanghai Hong_Kong Manila Osaka
+Manila Ho_Chi_Minh_City Hong_Kong Taipei Sydney San_Francisco
+Tokyo Seoul Shanghai Osaka San_Francisco
+Osaka Tokyo Taipei
+Sydney Jakarta Manila Los_Angeles

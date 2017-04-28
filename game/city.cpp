@@ -52,10 +52,11 @@ void
 City::outbreak(Disease disease) {
   if (hasOutbreakedThisTurn) { return; }
   hasOutbreakedThisTurn = true;
+  cout << "Outbreak in " << name << endl;
 
   for (auto it : connectedCities) {
     it->addDiseaseCubes(disease);
-    cout << "Outbreaking in " << it->name << endl;
+    cout << "Cascade outbreak in " << it->name << endl;
   }
 
   gGame->outbreak();
