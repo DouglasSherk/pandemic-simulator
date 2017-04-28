@@ -2,12 +2,7 @@
 
 #include "../game/game.hpp"
 
-vector<Role*>* Roles::roles = NULL;
-
-const vector<Role*>&
-Roles::getRoles() {
-  return *roles;
-}
+REGISTER_BASE(Role)
 
 void
 Role::onTurn() {

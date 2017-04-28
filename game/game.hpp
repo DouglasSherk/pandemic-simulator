@@ -13,18 +13,20 @@ public:
   ~Game();
   void play();
   void outbreak();
-  World* getWorld();
+  World* getWorld() const;
   InfectionDeck* getInfectionDeck() const;
   PlayerDeck* getPlayerDeck() const;
+  void setGameEnded();
 
 protected:
-  void checkGameEnded();
+  bool checkGameEnded();
 
   World* world;
   int numOutbreaks;
   PlayerDeck* playerDeck;
   InfectionDeck* infectionDeck;
   vector<Role*> players;
+  bool gameEnded;
 };
 
 extern Game* gGame;

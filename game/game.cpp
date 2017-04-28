@@ -7,9 +7,10 @@ Game::Game(int playersNum)
   : world(new World),
     numOutbreaks(0),
     playerDeck(new PlayerDeck(world->getCities())),
-    infectionDeck(new InfectionDeck(world->getCities())) {
+    infectionDeck(new InfectionDeck(world->getCities())),
+    gameEnded(false) {
 
-  vector<Role*> possibleRoles(Roles::getRoles());
+  vector<Role*> possibleRoles(ALL_ROLES());
 
   unsigned seed = chrono::system_clock::now().time_since_epoch().count();
   ::shuffle(possibleRoles.begin(), possibleRoles.end(), default_random_engine(seed));
@@ -25,11 +26,18 @@ Game::~Game() {
 
 void
 Game::play() {
+  for (auto it : ALL_TURN_BASED()) {
+    it->onNewTurn();
+  }
 
+  for (unsigned long long i = 0; !checkGameEnded(); i++) {
+    Role* player = players[i % players.size()];
+    player->onTurn();
+  }
 }
 
 World*
-Game::getWorld() {
+Game::getWorld() const {
   return world;
 }
 
@@ -40,8 +48,16 @@ Game::outbreak() {
 }
 
 void
-Game::checkGameEnded() {
+Game::setGameEnded() {
+  gameEnded = true;
+}
 
+bool
+Game::checkGameEnded() {
+  if (gameEnded) {
+
+  }
+  return gameEnded;
 }
 
 PlayerDeck*

@@ -10,21 +10,9 @@ public:
   virtual CardType cardType() const { return Hand; }
 };
 
-struct EventCards {
-private:
-  static vector<EventCard*>* eventCards;
+REGISTER_BASE_TEMPLATE(EventCard);
 
-public:
-  EventCards(EventCard* eventCard) {
-    if (!eventCards) {
-      eventCards = new vector<EventCard*>;
-    }
-    eventCards->push_back(eventCard);
-  }
-
-  static const vector<EventCard*>& getEventCards();
-};
-
-#define REGISTER_EVENT_CARD(C) EventCards temp_eventCards_##C(new C);
+#define REGISTER_EVENT_CARD(C) REGISTER_CLASS(EventCard, C)
+#define ALL_EVENT_CARDS() ALL_CLASS(EventCard)
 
 #endif

@@ -12,7 +12,7 @@ PlayerDeck::PlayerDeck(const vector<City*>& cities) {
     cards.push_back(new CityCard(it));
   }
 
-  for (auto it : EventCards::getEventCards()) {
+  for (auto it : ALL_EVENT_CARDS()) {
     it->play();
     cards.push_back(it);
   }

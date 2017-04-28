@@ -13,6 +13,7 @@ public:
 
   virtual const PlayerCard* drawCard();
 
+private:
   typedef Deck super;
 };
 

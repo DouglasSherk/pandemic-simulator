@@ -11,21 +11,9 @@ public:
   virtual void onNewTurn();
 };
 
-struct Roles {
-private:
-  static vector<Role*>* roles;
+REGISTER_BASE_TEMPLATE(Role);
 
-public:
-  Roles(Role* role) {
-    if (!roles) {
-      roles = new vector<Role*>;
-    }
-    roles->push_back(role);
-  }
-
-  static const vector<Role*>& getRoles();
-};
-
-#define REGISTER_ROLE(R) Roles temp_roles_##R(new R);
+#define REGISTER_ROLE(R) REGISTER_CLASS(Role, R)
+#define ALL_ROLES() ALL_CLASS(Role)
 
 #endif

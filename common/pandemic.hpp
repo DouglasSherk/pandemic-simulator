@@ -16,6 +16,7 @@
 
 #include "constants.hpp"
 #include "macros.hpp"
+#include "register.hpp"
 
 using namespace std;
 
