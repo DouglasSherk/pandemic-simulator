@@ -7,13 +7,19 @@ REGISTER_BASE(Role)
 void
 Role::onTurn() {
   act();
+  drawPlayerCard();
+  drawPlayerCard();
+}
+
+void
+Role::drawPlayerCard() {
   const PlayerCard* drawnCard = gGame->getPlayerDeck()->drawCard();
-  drawnCard->drawn();
-  drawnCard = gGame->getPlayerDeck()->drawCard();
-  drawnCard->drawn();
+  if (drawnCard) {
+    drawnCard->drawn();
+  }
 }
 
 void
 Role::onNewTurn() {
-
+  
 }

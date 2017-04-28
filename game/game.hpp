@@ -9,6 +9,14 @@
 
 class Game {
 public:
+  enum GameEndedReason {
+    None,
+    Won,
+    TooManyOutbreaks,
+    OutOfPlayerCards,
+    OutOfDiseaseCubes
+  };
+
   Game(int);
   ~Game();
   void play();
@@ -16,17 +24,22 @@ public:
   World* getWorld() const;
   InfectionDeck* getInfectionDeck() const;
   PlayerDeck* getPlayerDeck() const;
-  void setGameEnded();
+  void setGameEnded(GameEndedReason);
 
 protected:
-  bool checkGameEnded();
+  GameEndedReason checkGameEnded();
+
+  void infectCity(disease_cubes);
+  void infectInitialCities();
+  void infectCities();
 
   World* world;
   int numOutbreaks;
+  int infectionRate;
   PlayerDeck* playerDeck;
   InfectionDeck* infectionDeck;
   vector<Role*> players;
-  bool gameEnded;
+  GameEndedReason gameEndedReason;
 };
 
 extern Game* gGame;

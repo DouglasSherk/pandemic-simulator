@@ -15,6 +15,7 @@ public:
   void removeDiseaseCubes(Disease, disease_cubes = 1);
   void clearDiseaseCubes(Disease);
   disease_cubes numDiseaseCubes(Disease) const;
+  Disease getDisease() const;
 
 protected:
   disease_cubes diseaseCubes[Disease_Max];

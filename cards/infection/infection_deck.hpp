@@ -10,6 +10,14 @@ class InfectionDeck : public Deck {
 public:
   InfectionDeck();
   InfectionDeck(const vector<City*>&);
+
+  const InfectionCard* drawEpidemicCard();
+  const InfectionCard* drawCard();
+
+  void readdDiscardsToDeck();
+
+private:
+  typedef Deck super;
 };
 
 #endif

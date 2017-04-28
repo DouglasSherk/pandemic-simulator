@@ -6,9 +6,10 @@ Game* gGame;
 Game::Game(int playersNum)
   : world(new World),
     numOutbreaks(0),
+    infectionRate(0),
     playerDeck(new PlayerDeck(world->getCities())),
     infectionDeck(new InfectionDeck(world->getCities())),
-    gameEnded(false) {
+    gameEndedReason(None) {
 
   vector<Role*> possibleRoles(ALL_ROLES());
 
@@ -18,6 +19,8 @@ Game::Game(int playersNum)
   for (int i = 0; i < playersNum && i < possibleRoles.size(); i++) {
     players.push_back(possibleRoles[i]);
   }
+
+  infectInitialCities();
 }
 
 Game::~Game() {
@@ -26,13 +29,15 @@ Game::~Game() {
 
 void
 Game::play() {
-  for (auto it : ALL_TURN_BASED()) {
-    it->onNewTurn();
-  }
+  for (unsigned long long i = 0; checkGameEnded() == GameEndedReason::None; i++) {
+    for (auto it : ALL_TURN_BASED()) {
+      it->onNewTurn();
+    }
 
-  for (unsigned long long i = 0; !checkGameEnded(); i++) {
     Role* player = players[i % players.size()];
     player->onTurn();
+
+    infectCities();
   }
 }
 
@@ -48,16 +53,16 @@ Game::outbreak() {
 }
 
 void
-Game::setGameEnded() {
-  gameEnded = true;
+Game::setGameEnded(GameEndedReason reason) {
+  gameEndedReason = reason;
 }
 
-bool
+Game::GameEndedReason
 Game::checkGameEnded() {
-  if (gameEnded) {
-
+  if (gameEndedReason != Game::GameEndedReason::None) {
+    cout << "Game ended: " << gameEndedReason << endl;
   }
-  return gameEnded;
+  return gameEndedReason;
 }
 
 PlayerDeck*
@@ -68,4 +73,27 @@ Game::getPlayerDeck() const {
 InfectionDeck*
 Game::getInfectionDeck() const {
   return infectionDeck;
+}
+
+void
+Game::infectCity(disease_cubes cubes) {
+  const InfectionCard* infectionCard = infectionDeck->drawCard();
+  City* city = infectionCard->getCity();
+  city->addDiseaseCubes(city->getDisease(), cubes);
+}
+
+void
+Game::infectInitialCities() {
+  for (disease_cubes cubes = MAX_DISEASE_CUBES; cubes >= 1; cubes--) {
+    for (int city = 0; city < 3; city++) {
+      infectCity(cubes);
+    }
+  }
+}
+
+void
+Game::infectCities() {
+  for (int i = 0; i < INFECTION_RATES[infectionRate]; i++) {
+    infectCity(1);
+  }
 }

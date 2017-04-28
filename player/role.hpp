@@ -9,6 +9,9 @@ public:
   virtual void act() = 0;
   virtual void onTurn();
   virtual void onNewTurn();
+
+protected:
+  void drawPlayerCard();
 };
 
 REGISTER_BASE_TEMPLATE(Role);

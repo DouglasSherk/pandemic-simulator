@@ -31,6 +31,7 @@ City::addCityConnection(City& city) {
 void
 City::addDiseaseCubes(Disease disease, disease_cubes numDiseaseCubes) {
   diseaseCubes[disease] += numDiseaseCubes;
+  cout << diseaseCubes[disease] << " at " << name << endl;
   if (diseaseCubes[disease] > MAX_DISEASE_CUBES) {
     outbreak(disease);
     diseaseCubes[disease] = MAX_DISEASE_CUBES;
@@ -63,4 +64,9 @@ City::outbreak(Disease disease) {
 disease_cubes
 City::numDiseaseCubes(Disease disease) const {
   return diseaseCubes[disease];
+}
+
+Disease
+City::getDisease() const {
+  return disease;
 }

@@ -7,6 +7,7 @@
 class InfectionCard : public Card {
 public:
   InfectionCard(City*);
+  City* getCity() const;
 
 protected:
   City* city;

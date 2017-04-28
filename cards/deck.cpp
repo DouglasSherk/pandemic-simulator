@@ -11,7 +11,7 @@ Deck::~Deck() {
 
 const Card*
 Deck::drawCard() {
-  Card* card = cards.front();
+  const Card* card = cards.front();
   cards.pop_front();
   return card;
 }
@@ -25,18 +25,28 @@ Deck::operator +=(const Deck& deck) {
 }
 
 void
-Deck::shuffle() {
+Deck::shuffleCards() {
+  shuffle(cards);
+}
+
+void
+Deck::shuffleDiscards() {
+  shuffle(discards);
+}
+
+void
+Deck::shuffle(list<const Card*>& deck) {
   // Convert cards into a vector, shuffle them, then put them back into the
   // internal `cards` list.
-  vector<Card*> vCards;
-  for (auto it : cards) {
+  vector<const Card*> vCards;
+  for (auto it : deck) {
     vCards.push_back(it);
   }
   unsigned seed = chrono::system_clock::now().time_since_epoch().count();
   ::shuffle(vCards.begin(), vCards.end(), default_random_engine(seed));
 
-  cards.clear();
+  deck.clear();
   for (auto it : vCards) {
-    cards.push_back(it);
+    deck.push_back(it);
   }
 }

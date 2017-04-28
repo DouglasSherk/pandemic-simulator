@@ -9,12 +9,16 @@ public:
   ~Deck();
 
   virtual const Card* drawCard();
-  void shuffle();
   Deck& operator +=(const Deck&);
 
+  void shuffleCards();
+  void shuffleDiscards();
+
 protected:
-  list<Card *> cards;
-  list<Card *> discards;
+  void shuffle(list<const Card*>&);
+
+  list<const Card*> cards;
+  list<const Card*> discards;
 };
 
 #endif
